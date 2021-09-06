@@ -1,6 +1,9 @@
 
 
 const createDiv = () => document.createElement("DIV");
+const root = document.querySelector('#root');
+
+root.appendChild(createDiv());
 
 
 const createDivText = (text) => {
@@ -9,13 +12,37 @@ const createDivText = (text) => {
     element.appendChild(texNode);
     return element;
 }
-*/
+root.appendChild(createDivText('Valio'));
+
 
 const data = ['Labas', 'pats', 'tu labas'];
 console.log(data);
-const sorting =  data.sort( function(a, b) {
-    return a.charAt(2).toLowerCase().charCodeAt() - b.charAt(2).toLowerCase().charCodeAt()
+/*
+data.sort(function(a, b) {
+  let nameA = a.name.toUppercase();
+  let nameB = b.name.toUpperCase();
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  return 0;
   });
+*/
+  data.sort(function(a, b) {
+      let nameA = a[2].toUpperCase();
+      let nameB = b[2].toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+
+
 console.log(data);
 /*
 function compare(a, b) {
@@ -31,7 +58,7 @@ function compare(a, b) {
 */
 
 
-
+/*
 const data2 = new Set(['Labas', 'pats', 'tu labas']);
 const data3 = new Map([
     ['viens', 'Labas'],
@@ -45,6 +72,7 @@ const data4 = {
     du: 'pats',
     trys: 'tu labas'
 }
+*/
 
 /*
 const createDivText = (text) => {
@@ -69,6 +97,9 @@ const createDiv = () => document.createElement("DIV3");
 
 
 /*
+
+const createDiv = () => document.createElement("DIV");
+
 function createDivOld() {
   const div = document.createElement('DIV');
   return div;
@@ -87,9 +118,11 @@ const createDivOld2 = () => {
 
 const createDivOld3 = () => document.createElement('DIV');
 
-// viena eilute iki kabletaskio; jei turime arow f-j ji be kurlibratu 
+// viena eilute iki kabletaskio; jei turime arow f-j ji be kurlibratu
+// ka antroje eiluteje pasiskoliname, ta trecioje eiluteje graziname 
 // dvieju ar daugiau eiluciu  f-jo susikuria pacios this. zodeli
-// vienos eilutes f-j pasiskolina zodeli is auksciau
+// vienos eilutes f-j pasiskolina zodeli this. is auksciau esancios f-jos ar klases, t.y. kokiame scoupe f-ja buvo iskviesta, 
+o jei f-ja neiskvieciama tai ji paima is klases
 */
 /*
 function constructorDOM(inputTag, content, outputTag) {
@@ -120,3 +153,5 @@ function addElement () {
     document.body.insertBefore(newDiv, currentDiv);
   }
 */
+
+
