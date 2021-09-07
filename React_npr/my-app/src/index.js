@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//import SuperElement from './Components/component';
+import App from './Components/App';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  //<SuperElement name={'Petras'} surname={'Antanas'}></SuperElement>,
+  //<Element name={'Labas'} surname={'Antanas'}></Element>,
+  <App per={'griovį'}/>,
   document.getElementById('root')
 );
 
