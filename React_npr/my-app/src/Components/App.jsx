@@ -1,6 +1,7 @@
 import Component from './Component';
+import Stalas from './Stalas';
 
-function App() {
+function App(props) {
     return (<>
         <Component per={props.per} name={'Labas'} surname={'Antanai'}></Component>
         <Stalas per={props.per} name={'Labas'} surname={'Antanai'}></Stalas>
