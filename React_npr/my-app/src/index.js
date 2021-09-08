@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -10,7 +10,7 @@ import App from './Components/App';
 ReactDOM.render(
   //<SuperElement name={'Petras'} surname={'Antanas'}></SuperElement>,
   //<Element name={'Labas'} surname={'Antanas'}></Element>,
-  <App per={'griovį'}/>,
+  <App/>,
   document.getElementById('root')
 );
 
