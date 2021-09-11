@@ -24,7 +24,7 @@ class Mygtukas extends React.Component {
 
     valio(e) {
         console.log(`activateLasers(e) {
-            console.log(Valio ${this.props.tekstas} aktyvuoti`);;
+            console.log(`Valio ${this.props.tekstas} aktyvuoti`);;
         
     }
 
@@ -32,11 +32,11 @@ class Mygtukas extends React.Component {
 
     componentDidMount() {
          
-        document.querySelector('#root').
-        addEventListner('click', e => {
-            console.log('Valio');
-        })
-       
+        // document.querySelector('#root').
+        // addEventListner('click', e => {
+        //     console.log('Valio');
+        // })
+        
 
         // this.timerID = setInterval(this.tick, 1000);
         //this.timerID = setInterval(() => this.tick(), 1000);
@@ -50,7 +50,7 @@ class Mygtukas extends React.Component {
     render() {
         return ( 
        <button>
-            <div onClick={(e) this.valio(e)>
+            <div onClick={(e) => this.valio(e)>
             <a href="" className="container" onClick={(e) => this.activateLasers(e)}>
                 <div className="submit-feetback">{this.props.tekstas}</div>
             </a>

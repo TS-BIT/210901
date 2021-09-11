@@ -9,6 +9,21 @@
 }
 
 
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--feedback-primary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -34,20 +49,6 @@ code {
 }
 }
 
-
-body {
-  margin: 0;
-  font-family: "DM Sans", sans-serif;
-  background-color: var(--feedback-primary-color);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
-
 .center-content {
   display: grid;
   place-content: center;
@@ -55,7 +56,7 @@ body {
 
 .container {
   @extend .center-content;
-	height: 100vh;
+	margin: 10px;
 }
 
 .submit-feedback {
