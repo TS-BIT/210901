@@ -1,30 +1,24 @@
 import React from 'react';
+//import Mygtukas from './Mygtukas';
 
 
 class CountDisplay extends React.Component {
-
     render() {
-        return ( 
-       <button>
-            <div onClick={(e) this.valio(e)>
-            <div className="container" onClick={() => this.activateLasers()}
-            {this.props.tekstas}
-            </div>
-
-       </button>
-    );
+ 
+    if (this.props.digit > 30) {
+        return (
+            <div className="nice-d green">
+                {this.props.digit}
+            </div> 
+        );
     }
+    return (
+        <div className="nice-d">
+            {this.props.digit}
+        </div>
+    ); 
+}
 }
 
 
-
-
-
-// function Bebras(props) {
-//     return ( 
-//      <span>{props.bebras}</span>
-//     );
-// }
-
-
-export default Mygtukas;
+export default CountDisplay;
