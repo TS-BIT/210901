@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 
 //import SuperElement from './Components/component';
 import App from './Components/App';
+//import Datand1 from './Components/Datand1';
 
 ReactDOM.render(
   //<SuperElement name={'Petras'} surname={'Antanas'}></SuperElement>,
   //<Element name={'Labas'} surname={'Antanas'}></Element>,
-  <App/>,
-  document.getElementById('root')
+ <App/>,
+  //<Datand1/>,
+ document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
