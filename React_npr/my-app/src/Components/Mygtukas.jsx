@@ -1,5 +1,6 @@
 import React from 'react';
 import CountDisplay from './CountDisplay';
+import Mygtukas2 from './Mygtukas2';
 
 class Mygtukas extends React.Component {
 
@@ -61,14 +62,15 @@ class Mygtukas extends React.Component {
  
     render() {
         return ( 
-            <button>
-            <div onClick={(e) => this.valio(e)}>
+            //<button>
+            <div className="bin" div onClick={(e) => this.valio(e)}>
             <a href="" className="container" onClick={(e) => this.activateLasers(e)}>
                 <div className="submit-feetback">{this.props.tekstas}</div>
             </a>
             <CountDisplay digit={this.state.counter}></CountDisplay>
+            <Mygtukas2 virve={this.activateLasers}></Mygtukas2>
             </div>
-            </button>
+            //</button>
        
     );
     }
