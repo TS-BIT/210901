@@ -138,6 +138,15 @@ align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  input {
+    position: absolute;
+    top: 40px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    text-align: center;
+  }  
+
 }
 
 button {
@@ -149,8 +158,18 @@ button {
   color: peru;
   border-radius: 10px;
   cursor: pointer;
+  position: relative;
+  //top: 20px;
   //position: absolute;
   //top: 20px;
+  .reg {
+  position: absolute;
+  bottom: ;
+  }
+  .input-button {
+
+
+  }
 
 }
 
