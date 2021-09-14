@@ -1,13 +1,11 @@
 import React from 'react';
 
-class ChangeColorButt extends React.Component {
+class ChangeColorButt3 extends React.Component {
 
     
     render() {
         return ( 
             //<button className="container" onClick={this.props.clickToChangeColor}>Jaaa!</button>
-            <button1 className="container" onClick={this.props.clickToChangeColor}>Jaaa!1</button1>,
-            <button2 className="container" onClick={this.props.clickToChangeColor}>Jaaa!2</button2>,
             <button3 className="container" onClick={this.props.clickToChangeColor}>Jaaa!3</button3>  
     );
     }
@@ -15,4 +13,4 @@ class ChangeColorButt extends React.Component {
 }
 
 
-export default ChangeColorButt;
+export default ChangeColorButt3;
