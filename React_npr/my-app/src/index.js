@@ -9,9 +9,7 @@ import App from './Components/App';
 //import Datand1 from './Components/Datand1';
 
 ReactDOM.render(
-  //<SuperElement name={'Petras'} surname={'Antanas'}></SuperElement>,
-  //<Element name={'Labas'} surname={'Antanas'}></Element>,
- <App/>,
+  <App/>,
   //<Datand1/>,
  document.getElementById('root')
 );

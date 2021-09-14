@@ -130,14 +130,69 @@ justify-content: center;
 align-items: center;
 }
 
+
+.circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 button {
   border: none;
   background-color: peachpuff;
-  padding: 7px;
+  padding: 27px;
   font-size: 27px;
   letter-spacing: 2px;
   color: peru;
-  border-radius: 5%;
+  border-radius: 10px;
+  cursor: pointer;
+  //position: absolute;
+  //top: 20px;
+
+}
+
+button1 {
+  border: none;
+  background-color: violet;
+  padding: 27px;
+  font-size: 27px;
+  letter-spacing: 2px;
+  color: peru;
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+
+}
+
+button2 {
+  border: none;
+  background-color: silver;
+  padding: 27px;
+  font-size: 27px;
+  letter-spacing: 2px;
+  color: peru;
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+
+}
+
+button3 {
+  border: none;
+  background-color: yellow;;
+  padding: 27px;
+  font-size: 27px;
+  letter-spacing: 2px;
+  color: peru;
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
 
 }
 
