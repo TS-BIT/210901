@@ -37,8 +37,7 @@ changeColorG = () => {
  changeColor = (color) => {
     this.setState ({
       bg:  color,
-      in: color
-      });
+    });
  };
 
  inChange = (e) => {
@@ -50,7 +49,7 @@ changeColorG = () => {
 
  doColor = () => {
      this.setState(state => ({bg: state.in}));
- }
+ };
 
 
 
@@ -58,13 +57,15 @@ changeColorG = () => {
 
     return (
       <div className="circle" style={{backgroundColor: this.state.bg}}>
-        <div></div>
-        <ChangeColorButton regNumber={23} color={'palegreen'} clickToChangeColor={this.changeColorP}></ChangeColorButton>
+        {/* <ChangeColorButton regNumber={23} color={'palegreen'} clickToChangeColor={this.changeColorP}></ChangeColorButton>
         <ChangeColorButton regNumber={53} color={'orangered'} clickToChangeColor={this.changeColorO}></ChangeColorButton>
-        <ChangeColorButton regNumber={77} color={'greenyellow'} clickToChangeColor={this.changeColorG}></ChangeColorButton>
-        <input type = "text" value={this.state.in} onChange={this.}/>
-        <input type = "text" value={this.state.in}/>
-    </div>
+        <ChangeColorButton regNumber={77} color={'greenyellow'} clickToChangeColor={this.changeColorG}></ChangeColorButton> */}
+        <ChangeColorButton regNumber={23} color={'palegreen'} clickToChangeColor={this.changeColor}></ChangeColorButton>
+        <ChangeColorButton regNumber={53} color={'orangered'} clickToChangeColor={this.changeColor}></ChangeColorButton>
+        <ChangeColorButton regNumber={77} color={'greenyellow'} clickToChangeColor={this.changeColor}></ChangeColorButton>
+        <input type = "text" value={this.state.in} onChange={this.inChange}/>
+        <button className="input-button" onClick={this.doColor}>Change Color</button>
+        </div>
     );
   }
 }
