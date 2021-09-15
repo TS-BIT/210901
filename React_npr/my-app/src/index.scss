@@ -139,20 +139,45 @@ align-items: center;
   justify-content: center;
   align-items: center;
   input {
-    position: absolute;
-    top: 40px;
+    // position: absolute;
+    // top: 40px;
+    margin: 5px;
     font-size: 20px;
     outline: none;
     border: none;
     text-align: center;
   }
   .input-button {
-    position: absolute;
+    //position: absolute;
+    margin: 5px;
     top: 90px;
 }  
 
 }
 
+.small-circle {
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    // position: absolute;
+    // top: 40px;
+    margin: 5px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    text-align: center;
+  }
+  .input-button {
+    //position: absolute;
+    margin: 5px;
+    top: 90px;
+}  
+
+}
 
 button {
   border: none;
