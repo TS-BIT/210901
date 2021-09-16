@@ -1,9 +1,5 @@
 import React from "react";
 import SmallCow from './SmallCow';
-import SmallRam from "./SmallRam";
-
-// Reikia padaryti kad būtų du mygtukai. Vienas kuria apskritimus (karves), 
-// kitas kuria keturkampius (avinus). Viskas viename masyve ir draugauja su localStorage
 
 class App extends React.Component {
   constructor() {
@@ -11,8 +7,6 @@ class App extends React.Component {
     this.state = { 
         cows: [],
         cowInput: '',
-        rams: [],
-        ramInput: '',
     };
   }
  
@@ -33,25 +27,6 @@ cowInputHandler = (e) => {
 });
 }
 
-addRam = () => {
-    const ram = {color: this.state.ramInput};
-    const rams = this.state.rams.slice();
-    rams.push(ram);
-    this.setState({
-      rams: rams
-    })
-    localStorage.setItem('allRams', JSON.stringify(rams));
-  }
-  
-  cowInputHandler = (e) => {
-    this.setState({
-      ramInput: e.target.value
-  });
-  }
-
-
-
-
 componentDidMount() {
   const cows = JSON.parse(localStorage.getItem('allCows'));
   if (null === cows) {
@@ -67,15 +42,10 @@ componentDidMount() {
     return (
     <>
   {/* {console.log('komponente:', this.state.cows)}; */}
-    {this.state.cows.map((b, i) => <SmallCow key={i} color={b.color} />)},
-    {this.state.rams.map((b, i) => <SmallRam key={i} color={b.color} />)}
+    {this.state.cows.map((b, i) => <SmallCow key={i} color={b.color} />)}
     <div>
       <input type = "text" value={this.state.cowInput} onChange={this.cowInputHandler}/>
       <button className="input-button" onClick={this.addCow}>Add Cowe</button>
-    </div>
-    <div>
-      <input type = "text" value={this.state.ramInput} onChange={this.ramInputHandler}/>
-      <button className="input-button" onClick={this.addRam}>Add Ram</button>
     </div>
     </>
     );
