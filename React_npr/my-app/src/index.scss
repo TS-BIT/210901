@@ -155,27 +155,13 @@ align-items: center;
 }
 
 .small-circle {
-  width: 800px;
-  height: 800px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  input {
-    // position: absolute;
-    // top: 40px;
-    margin: 5px;
-    font-size: 20px;
-    outline: none;
-    border: none;
-    text-align: center;
-  }
-  .input-button {
-    //position: absolute;
-    margin: 5px;
-    top: 90px;
-}  
-
+  position: relative;
 }
 
 button {

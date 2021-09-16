@@ -1,20 +1,8 @@
-import React from "react";
+//import React from "react";
 //import SmallCow from './SmallCow';
-import ChangeColorButton from './ChangeColorButton';
-
 
 function SmallCow(props) {
-    return (<div className="small-circle">{props.color}</div>);
+    return (<div className="small-circle" style={{backgroundColor: props.color}}>{props.color}</div>);
 }
 
-addCow
-
-
-
-render() {
-
-    return (
-        <>
-
-
-export defaul SmallCow;
+export default SmallCow;
