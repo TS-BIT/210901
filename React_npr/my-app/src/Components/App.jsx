@@ -1,38 +1,57 @@
 import React from "react";
-import SmallCow from './SmallCow';
+//import Mygtukas from './Mygtukas';
+import ChangeColorButton from './ChangeColorButton';
+
+//const data = [['Spausk', 1], ['Spaudinėk', 10], ['Klikink', 100]];
+//Padaryti tris kontroliuojamus inputus du text tipo ir vienas checkbox. Vienas inputas turi keisti apskritimo spalvą, kitas 
+//skersmenį ir trečias- kai pažymėtas turi pakeisti apskritimą į kvadratą
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { 
-        cows: [],
-        cowInput: '',
-    };
+    this.state = {
+      bg: 'palegreen',
+      bgIn: '',
+      size: 600,
+      sizeIn: '',
+      shapeSquare: false
+      };
+   
   }
- 
-addCow = (e) => {
-    const cow = {color: this.state.cowInput};
-    const cows = this.state.cows.slice();
-    cows.push(cow);
-    this.setState({
-        cows: cows
-    })
-    localStorage.setItem('allCows', JSON.stringify(cows));
+
+ doColor = () => {
+  this.setState(state => ({bg: state.bgIn}));
+};
+
+ inChangeColor = (e) => {
+  this.setState({
+    bgIn: e.target.value,
+});
 }
 
-cowInputHandler = (e) => {
-    this.setState
+doColor = () => {
+  this.setState(state => ({bg: state.bgIn}));
+};
+
+inChangeSize = (e) => {
+  this.setState({
+      sizeIn: e.target.value,
+  });
+}
+doSize = () => {
+  this.setState(state => ({size: state.sizeIn}));
 }
 
-componentDidMount() {
-    const cows = JSON.parse(localStorage.getItem('allCows'));
-    if (null === cows) {
-        return;       
-    }
-    this.setState({
-        cows: cows
-    })
+inChangeShape = () => {
+  //good
+  this.setState(state => ({shapeSquare: (!state.shapeSquare)}));
+
+  //wrong
+  // this.setState({
+  //     shapeSquare: (!this.state.shapeSquare),
+  // });
 }
+
 
   render() {
 
@@ -44,18 +63,17 @@ componentDidMount() {
         borderRadius: this.state.shapeSquare ? '0' : '50%'
         }}>       
       <div>
-      <input type = "text" value={this.state.bgIn} onChange={this.inChange}/>
+      <input type = "text" value={this.state.bgIn} onChange={this.inChangeColor}/>
         <button className="input-button" onClick={this.doColor}>Change Color</button>
       </div>
       <div>
-      <input type = "text" value={this.state.sizeIn} onChange={this.inChange}/>
+      <input type = "text" value={this.state.sizeIn} onChange={this.inChangeSize}/>
         <button className="input-button" onClick={this.doSize}>Change Size</button>
       </div>
       <div>
-      <input type = "checkbox" value={this.state.bgIn} onChange={this.inChange}/>
-        <button className="input-button" onClick={this.doColor}>Change Color</button>
+      <input type="checkbox" onChange={this.inChangeShape} checked={this.state.shapeSquare}/>
+      <label>Change Shape</label>
       </div>
-
     </div>
     );
   }
