@@ -1,6 +1,7 @@
 import React from "react";
-import SmallCow from './SmallCow';
-import SmallRam from "./SmallRam";
+import SmallAnimal from './SmallAnimal';
+//import SmallCow from "./SmallCow";
+//import SmallRam from "./SmallRam";
 
 // Reikia padaryti kad būtų du mygtukai. Vienas kuria apskritimus (karves), 
 // kitas kuria keturkampius (avinus). Viskas viename masyve ir draugauja su localStorage
@@ -9,23 +10,22 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = { 
-        cows: [],
-        cowInput: '',
-        rams: [],
-        ramInput: '',
+        animals: [],
+        cowInput: ''
     };
   }
  
-addCow = () => {
-  const cow = {color: this.state.cowInput};
-  const cows = this.state.cows.slice();
-  cows.push(cow);
+addAnimal = (a) => {
+  const animal = {color: this.state.cowInput, animal: a};
+  const animals = this.state.animals.slice();
+  animals.push(animal);
   this.setState({
-    cows: cows
+    animals: animals
   })
   //console.log('iskart po irasymo:', this.state.cows);
-  localStorage.setItem('allCows', JSON.stringify(cows));
+  localStorage.setItem('allAnimals', JSON.stringify(animals));
 }
+
 
 cowInputHandler = (e) => {
   this.setState({
@@ -33,32 +33,13 @@ cowInputHandler = (e) => {
 });
 }
 
-addRam = () => {
-    const ram = {color: this.state.ramInput};
-    const rams = this.state.rams.slice();
-    rams.push(ram);
-    this.setState({
-      rams: rams
-    })
-    localStorage.setItem('allRams', JSON.stringify(rams));
-  }
-  
-  cowInputHandler = (e) => {
-    this.setState({
-      ramInput: e.target.value
-  });
-  }
-
-
-
-
 componentDidMount() {
-  const cows = JSON.parse(localStorage.getItem('allCows'));
-  if (null === cows) {
+  const animals = JSON.parse(localStorage.getItem('allAnimals'));
+  if (null === animals) {
     return;       
   }
     this.setState({
-        cows: cows
+        animals: animals
     })
 }
 
@@ -66,16 +47,11 @@ componentDidMount() {
 
     return (
     <>
-  {/* {console.log('komponente:', this.state.cows)}; */}
-    {this.state.cows.map((b, i) => <SmallCow key={i} color={b.color} />)},
-    {this.state.rams.map((b, i) => <SmallRam key={i} color={b.color} />)}
+      {this.state.animals.map((b, i) => <SmallAnimal key={b} color={b.color} animal={b.animal} />)},
     <div>
       <input type = "text" value={this.state.cowInput} onChange={this.cowInputHandler}/>
-      <button className="input-button" onClick={this.addCow}>Add Cowe</button>
-    </div>
-    <div>
-      <input type = "text" value={this.state.ramInput} onChange={this.ramInputHandler}/>
-      <button className="input-button" onClick={this.addRam}>Add Ram</button>
+      <button className="input-button" onClick={()=>this.addAnimal('cow')}>Add Cow</button>
+      <button className="input-button" onClick={()=>this.addAnimal('sheep')}>Add Sheep</button>
     </div>
     </>
     );
