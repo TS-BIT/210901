@@ -150,26 +150,27 @@ align-items: center;
   .input-button {
     //position: absolute;
     margin: 5px;
+
 }
 
 }
 
 .small-circle {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  // flex-direction: column;
+  flex-direction: column;
   margin: 5px;
-  // span {
-  //   font-size: ;
-  //   letter-spacing: ;
-  //   color: ;
-  //   padding: ;
-  // }
+  span {
+    font-size: 27px;
+    letter-spacing: 2px;
+    color: black;
+    padding: 16px;
+  }
 }
 .small-square {
   width: 100px;
@@ -197,19 +198,19 @@ button {
   //top: 20px;
   //position: absolute;
   //top: 20px;
+  &.input-button-small {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: white;
+    background-color: orangered;
+    padding: 8px;
+  }    
   .reg {
   position: absolute;
   bottom: 5px;
   right: 5px;
   font-size: 10px;
   }
-  // &.input-button-small {
-  //   font-size: 14px;
-  //   letter-spacing: 1px;
-  //   color: #ffffff;
-
-  //   margin: 5px;
-  // }    
 
 }
 
