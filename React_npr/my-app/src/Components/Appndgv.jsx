@@ -47,7 +47,7 @@ componentDidMount() {
 
     return (
     <>
-      {this.state.animals.map((b, i) => <SmallAnimal key={b} color={b.color} animal={b.animal} />)},
+      {this.state.animals.map((b, i) => <SmallAnimal key={i} color={b.color} animal={b.animal} />)},
     <div>
       <input type = "text" value={this.state.cowInput} onChange={this.cowInputHandler}/>
       <button className="input-button" onClick={()=>this.addAnimal('cow')}>Add Cow</button>

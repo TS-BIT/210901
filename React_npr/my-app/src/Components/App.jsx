@@ -1,10 +1,13 @@
 import React from "react";
-import SmallAnimal from './SmallAnimalndgv';
+import SmallAnimal from './SmallAnimal';
+import getId from "../Shared/id";
 //import SmallCow from "./SmallCow";
 //import SmallRam from "./SmallRam";
 
 // Reikia padaryti kad būtų du mygtukai. Vienas kuria apskritimus (karves), 
 // kitas kuria keturkampius (avinus). Viskas viename masyve ir draugauja su localStorage
+
+// Reikia dviejų analogiškų fermų. Kiekvienas gyvulys fermoje turi turėti papildomą mygtuką - pereiti į kitą fermą
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +19,7 @@ class App extends React.Component {
   }
  
 addAnimal = (a) => {
-  const animal = {color: this.state.cowInput, animal: a};
+  const animal = {id: getId(), color: this.state.cowInput, animal: a};
   const animals = this.state.animals.slice();
   animals.push(animal);
   this.setState({
@@ -24,6 +27,17 @@ addAnimal = (a) => {
   })
   //console.log('iskart po irasymo:', this.state.cows);
   localStorage.setItem('allAnimals', JSON.stringify(animals));
+}
+
+deleteAnimal = (id) => {
+  // const animal = {id: getId(), color: this.state.cowInput, animal: a};
+  // const animals = this.state.animals.slice();
+  // animals.push(animal);
+  // this.setState({
+  //   animals: animals
+  // })
+  // //console.log('iskart po irasymo:', this.state.cows);
+  // localStorage.setItem('allAnimals', JSON.stringify(animals));
 }
 
 
@@ -47,7 +61,7 @@ componentDidMount() {
 
     return (
     <>
-      {this.state.animals.map((b, i) => <SmallAnimal key={b} color={b.color} animal={b.animal} />)},
+      {this.state.animals.map(b => <SmallAnimal key={b.id} delete={this.deleteAnimal} id={b.id} color={b.color} animal={b.animal} />)},
     <div>
       <input type = "text" value={this.state.cowInput} onChange={this.cowInputHandler}/>
       <button className="input-button" onClick={()=>this.addAnimal('cow')}>Add Cow</button>
