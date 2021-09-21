@@ -5,34 +5,27 @@ function M3F() {
     const [z, set7Z] = useState(7);
     
    // componentDidMount() analogas
+       
+   useEffect(() => {
+        console.log('La la');
+    },[]);
    
-    useEffect(() => {
-        console.log (La, La)
-
-
-
-   }
-   
-   
-
     const do3 = () => {
-        // this.setState((state) => ({x: state.x +=3})); 
+        // this.setState((state) => ({x: state.x += 3}));
         const newX = x + 3;
         set3X(newX);
     }
-    
+
     const do7 = () => {
         set7Z(z + 7);
     }
 
-    
-return (
-    <>
+    return (
+        <>
     <button onClick={do3}>{x}X</button>
     <button onClick={do7}>{z}Z</button>
-</>
-)
-
+    </>
+    );
 }
-
 export default M3F;
+ 
