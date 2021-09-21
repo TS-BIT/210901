@@ -1,23 +1,18 @@
 import React from "react";
-import SmallAnimal from './SmallAnimal';
-import getId from "../Shared/id";
 
-// Reikia padaryti kad būtų du mygtukai. Vienas kuria apskritimus (karves), 
-// kitas kuria keturkampius (avinus). Viskas viename masyve ir draugauja su localStorage
+// Sąlyga: Naujame App.jsx paleisti mygtuką 3X, kurį paspaudus jame atsirastų užrašas 6X, dar paspaudus 9X ... 12X ir t.t.
+// Perkrovus puslapį turėtų rodyti seną rezultatą t.y. pvz 12X. Tam tikslui naudokite localstorage
 
-// Reikia dviejų analogiškų fermų. Kiekvienas gyvulys fermoje turi turėti papildomą mygtuką - pereiti į kitą fermą
+// class App extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = { 
+//         3X: []
+        
+//     };
+//   }
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = { 
-        animals: [],
-        cowInput: '',
-        farmInput: ''
-    };
-  }
-
-farm = ['farm1', 'farm2'];
+fermaName = ['ferma1', 'ferma2'];
  
 addAnimal = (a) => {
   const animal = {id: getId(), color: this.state.cowInput, fermaName: this.state.cowInput, animal: a};
@@ -60,15 +55,11 @@ editAnimal = (id, color, fermaName) => {
   }
 }
 
+
+
 cowInputHandler = (e) => {
   this.setState({
     cowInput: e.target.value
-});
-}
-
-farmInputHandler = (e) => {
-  this.setState({
-    farmInput: e.target.value
 });
 }
 
@@ -86,10 +77,10 @@ componentDidMount() {
 
     return (
     <>
-      {this.state.animals.map(b => <SmallAnimal key={b.id} delete={this.deleteAnimal} edit={this.editAnimal} id={b.id} color={b.color} farm={b.farm} animal={b.animal} />)},
+      {this.state.animals.map(b => <SmallAnimal key={b.id} delete={this.deleteAnimal} edit={this.editAnimal} id={b.id} color={b.color} fermaName={b.fermaName} animal={b.animal} />)},
     <div>
       <input type = "text" value={this.state.cowInput} onChange={this.cowInputHandler}/>
-      <input type = "text" value={this.state.farmInput} onChange={this.farmInputHandler}/>
+      <input type = "text" value={this.state.cowInput} onChange={this.cowInputHandler}/>
       <button className="input-button" onClick={()=>this.addAnimal('cow')}>Add Cow</button>
       <button className="input-button" onClick={()=>this.addAnimal('sheep')}>Add Sheep</button>
     </div>

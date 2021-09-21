@@ -4,13 +4,20 @@ class SmallAnimal extends React.Component {
     constructor(props) {
       super(props);
       this.state = { 
-          editInput: '',
+          editcolorInput: '',
+          editfarmInput: ''
         };
     }
 
-    editInputHandler = (e) => {
+    editcolorInputHandler = (e) => {
         this.setState({
-            editInput: e.target.value
+            editcolorInput: e.target.value,
+        });
+      }
+
+      editfarmInputHandler = (e) => {
+        this.setState({
+            editfarmInput: e.target.value
         });
       }
 
@@ -20,11 +27,15 @@ class SmallAnimal extends React.Component {
         backgroundColor: this.props.color,
         borderRadius: this.props.animal == 'cow' ? '50%' : '5px'    
     }}>
-        <span>{this.props.color}</span>
+        <span>{this.props.color} {this.props.farm}</span>
         <button className="input-button-small" onClick={()=>this.props.delete(this.props.id)}>Go Home</button>
         <div className="center">
-            <input type = "text" value={this.state.editInput} onChange={this.editInputHandler}/>
-            <button className="input-button-small" onClick={()=>this.props.edit(this.props.id, this.state.editInput)}>Edit Color</button>   
+            <input type = "text" value={this.state.editcolorInput} onChange={this.editcolorInputHandler}/>
+            <button className="input-button-small" onClick={()=>this.props.edit(this.props.id, this.state.editcolorInput)}>Edit Color</button>
+        </div>
+        <div>   
+            <input type = "text" value={this.state.editfarmInput} onChange={this.editfarmInputHandler}/>
+            <button className="input-button-small" onClick={()=>this.props.edit(this.props.id, this.state.editfarmInput)}>Edit Farm </button>         
         </div>   
     </div>);
     }
