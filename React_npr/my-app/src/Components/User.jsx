@@ -1,18 +1,20 @@
-// import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
 
-// function User(props) {
+function User(props) {
 
-//     const [name, setName] = useState('');
+    const [name, setName] = useState('');
 
-//     useEffect(()=>{
-        
+    useEffect(()=>{
+        axios.get('https://jsonplaceholder.typicode.com/users/'+props.id)
+        .then(r => setName(r.data.name));
+        }, [props.id]);
 
-//     }
-//  return (
-//         <div className="user">{name}</div>
-//     )
+    return (
+       <div className="user">{name}</div>
+    )
 
-// }
+}
 
 
-// export default User;
+export default User;
