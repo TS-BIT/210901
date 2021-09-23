@@ -1,18 +1,18 @@
-import React, {useState, useEffect} from 'react';
+// import React, {useState, useEffect} from 'react';
 
-function User(props) {
+// function User(props) {
 
-    const [name, setName] = useState('');
+//     const [name, setName] = useState('');
 
-    useEffect(()=>{
+//     useEffect(()=>{
         
 
-    }
-    return (
-        <div className="user">{name}</div>
-    )
+//     }
+//  return (
+//         <div className="user">{name}</div>
+//     )
 
-}
+// }
 
 
-export default User;
+// export default User;
