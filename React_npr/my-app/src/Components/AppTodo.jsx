@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Todo from './Todo';
+import TodoOne from './TodoOne';
 
 // Gražiais su CSS padaryti prekių sąrašą. Pridėti mygtuką pirkti.
 // https://in3.dev/knygos/
@@ -13,10 +14,8 @@ function App() {
     const [todos, setTodos] = useState([]);
 
     useEffect(()=>{
-        console.log('Start');
         axios.get('https://jsonplaceholder.typicode.com/todos')
         .then(function (response) {
-            console.log(response.data);
             setTodos(response.data);
         })
     }, []);
@@ -30,37 +29,26 @@ function App() {
             }
         }
         setTodos(todosCopy);
-        console.log(id);
     }
-        return 
+
+    return (
         <Router>
             <Switch>
-                <Route path={'/:id'}>
-                <div className="todo-container">
-                {todos.map((todo)=>(<Todo key={todo.id} data={todo} sniuriukas={sniuriukasTodui}></Todo>))}
-    </div>;
+                <Route path={'/:todoId'}>
+                    <div className="todo-container">
+                        <TodoOne todos={todos} sniuriukas={sniuriukasTodui}></TodoOne>
+                    </div>
                 </Route>
                 <Route path='/'>
-        
-        
-        
-        <div {todos.map((todo)=>(<Todo key={todo.id} data={todo} sniuriukas={sniuriukasTodui}></Todo>))}
-    </div>;
-                
-                
-                
-
+                    <div className="todo-container">
+                        {todos.map((todo)=>(<Todo key={todo.id} data={todo} sniuriukas={sniuriukasTodui}></Todo>))}
+                    </div>
+                </Route>
             </Switch>
         </Router>
-        
-        
-        (<div className="todo-container">
-        {todos.map((todo)=>(<Todo key={todo.id} data={todo} sniuriukas={sniuriukasTodui}></Todo>))}
-    </div>);
+    );
   
 }  
-
-
 
     
 export default App;
