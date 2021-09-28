@@ -1,45 +1,37 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import Todo from './Todo';
-import UserLink from './UserLink';
-import { Route, Switch } from 'react-router';
-
-// Gražiais su CSS padaryti prekių sąrašą. Pridėti mygtuką pirkti.
-// https://in3.dev/knygos/
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+} from "react-router-dom";
+import Topics from "./Topics";
 
 
-function App() {
+export default function App() {
+    return (
+      <Router>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/topics/222/999">Topics</Link>
+            </li>
+          </ul>
 
-    const [todos, setTodos] = useState([]);
-
-    useEffect(()=>{
-        console.log('Start');
-        axios.get('https://jsonplaceholder.typicode.com/todos')
-        .then(function (response) {
-            console.log(response.data);
-            setTodos(response.data);
-        })
-    }, []);
-
-    const sniuriukasTodui = (id) => {
-        const todosCopy = todos.slice();
-        for (let i = 0; i < todosCopy.length; i++) {
-            if (id === todosCopy[i].id) {
-                todosCopy[i].completed = !todosCopy[i].completed;
-                break;
-            }
-        }
-        setTodos(todosCopy);
-        console.log(id);
-    }
-        return (<div className="todo-container">
-        {todos.map((todo)=>(<Todo key={todo.id} data={todo} sniuriukas={sniuriukasTodui}></Todo>))}
-    </div>);
-  
-}  
-
-
-
-    
-export default App;
+          <Switch>
+            <Route exact path="/">
+                <div>
+                    <h2>Home</h2>
+                </div>
+            </Route>
+            
+            <Route path="/topics/222/999">
+              <Topics />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
