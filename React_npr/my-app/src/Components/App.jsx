@@ -1,38 +1,27 @@
-import { useRef, useState, useEffect } from "react";
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import Post from './Post';
 
 function App() {
-    const counter = useRef(0);
-    const crazyRef = useRef();
-    const [turboCounter, setTurboCounter] = useState(0);
-
-    const clicker = () => {
-        counter.current++;
-    }
-
-    const turboClicker = () => {
-        setTurboCounter(turboCounter + 1);
-    }
-
+    const [posts, setPosts] = useState([]);
+  
     useEffect(() => {
-        console.log(crazyRef.current);
-        crazyRef.current.style.fontSize = "50px";
-        //
-        document.querySelector('.crazy').style.color = "blue";
         
-        setTimeout(() => {
-            document.querySelector('.crazy').innerHTML = "JA JA!";
-          }, 2000);
-      }, []);
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then(function (response) {
+            console.log(response.data);
+            setPosts(response.data);
+        })
+    }, []);
 
 
 
-    return (<>
-        <h1>REF: {counter.current}</h1>
-        <h1>STATE: {turboCounter}</h1>
-        <button onClick={clicker}>REF: Ja Ja!</button>
-        <button onClick={turboClicker}>STATE: Ja Ja!</button>
-        <div ref={crazyRef} className="crazy">CRAZY</div>
-    </>);
+    return (
+    <div>
+        <div className="posts-container">
+            {posts.map((post)=>(<Post key={post.id} data={post}></Post>))}
+        </div>
+    </div>);
     }
     
 export default App;
